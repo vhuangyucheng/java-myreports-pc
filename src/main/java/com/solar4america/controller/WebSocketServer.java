@@ -35,7 +35,7 @@ public class WebSocketServer {
     @OnOpen
     public void onOpen(Session session) {
 
-
+        this.session = session;
         System.out.println("连接成功");
         try {
             sendMessage("连接成功");
@@ -76,7 +76,7 @@ public class WebSocketServer {
      */
     @OnError
     public void onError(Session session, Throwable error) {
-        log.error("发生错误");
+        log.error("onError发生错误");
         error.printStackTrace();
     }
     /**
