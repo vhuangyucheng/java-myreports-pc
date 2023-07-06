@@ -25,7 +25,7 @@ public class Test {
     public static void main(String[] args) {
         try {
             OpcUaClient client = OpcUaClient.create(
-                    "opc.tcp://milo.digitalpetri.com:62541/milo",
+                    "opc.tcp://10.10.140.92:50000",
                     endpoints ->
                             endpoints.stream()
                                     .filter(e -> e.getSecurityPolicyUri().equals(SecurityPolicy.None.getUri()))
@@ -37,7 +37,7 @@ public class Test {
 
 
             UaVariableNode testNode = (UaVariableNode) client.getAddressSpace().getNode(
-                    new NodeId(2, "CTT/References/Has3ForwardRefs_1/001")
+                    new NodeId(2, "Tag.MES.MR2004")
             );
 
 // Read the Value attribute

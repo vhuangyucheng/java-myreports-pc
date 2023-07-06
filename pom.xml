@@ -112,11 +112,7 @@
             <version>1.57</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.kangaroohy</groupId>
-            <artifactId>milo-spring-boot-starter</artifactId>
-            <version>3.0.3</version>
-        </dependency>
+
 
 
     </dependencies>
