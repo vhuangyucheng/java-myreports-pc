@@ -25,6 +25,11 @@ spring:
 #      controller: DEBUG
 #      dao: DEBUG
 
+logging:
+  file: demo.log
+  path: /log/
+
+
 server:
   port: 8080
 
