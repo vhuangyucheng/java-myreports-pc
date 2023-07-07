@@ -17,42 +17,36 @@ import org.eclipse.milo.opcua.stack.core.types.structured.ReadResponse;
 import org.eclipse.milo.opcua.stack.core.types.structured.ReadValueId;
 import org.springframework.boot.SpringApplication;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class Test {
-    public static void main(String[] args) {
-        try {
-            OpcUaClient client = OpcUaClient.create(
-                    "opc.tcp://10.10.140.92:50000",
-                    endpoints ->
-                            endpoints.stream()
-                                    .filter(e -> e.getSecurityPolicyUri().equals(SecurityPolicy.None.getUri()))
-                                    .findFirst(),
-                    configBuilder ->
-                            configBuilder.build()
-            );
-            client.connect().get();
+    public static void main(String[] args) throws Exception {
+        SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+        String day = dayFormat.format(new Date());
+        System.out.println("day: " + day);
+
+        SimpleDateFormat sdf = new SimpleDateFormat(day + " HH:mm:ss");
+        Date date1 = sdf.parse(day + " 06:45:00");
+        Date date2 = sdf.parse(day + " 15:15:00");
+        Date date3 = sdf.parse(day + " 23:30:00");
+        Date now = new Date();
+        Date fake = sdf.parse(day + " 15:17:00");
 
 
-            UaVariableNode testNode = (UaVariableNode) client.getAddressSpace().getNode(
-                    new NodeId(2, "Tag.MES.MR2004")
-            );
+        if (fake.after(date1) && fake.before(date2) || fake.equals(date1)) {
+            System.out.println("Date1 ");
+        }
 
-// Read the Value attribute
-            DataValue value = testNode.readValue();
+        if (fake.after(date2) && fake.before(date3) || fake.equals(date2)) {
+            System.out.println("Date2");
+        }
 
-// Read the BrowseName attribute
-            QualifiedName browseName = testNode.readBrowseName();
-
-// Read the Description attribute, with timestamps and quality intact
-            DataValue descriptionValue = testNode.readAttribute(AttributeId.Description);
-            System.out.println(descriptionValue + "ddddddd");
-            System.out.println(value + "ddddddd");
-            System.out.println(browseName + "ddddddd");
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (date1.after(date3)|| fake.equals(date3)) {
+            System.out.println("Date3");
         }
 
 

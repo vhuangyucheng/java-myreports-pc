@@ -57,6 +57,8 @@ public class StringerController {
         } catch (UaException | ExecutionException | InterruptedException e) {
             System.out.println("calling string21" + e.toString());
             throw new RuntimeException(e);
+        } finally {
+
         }
 
     }

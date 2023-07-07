@@ -1,4 +1,4 @@
-package com.solar4america.StringerClient;
+package com.solar4america.stringerClient;
 
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
