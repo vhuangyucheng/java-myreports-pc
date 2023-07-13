@@ -20,5 +20,8 @@ public class ScheduledTask {
         log.info("任务执行时间：" + LocalDateTime.now());
     }
 
+    //todo 开机任务
+    //todo 三个班的间隙任务
+    //todo 切换班别定时任务
 }
 
