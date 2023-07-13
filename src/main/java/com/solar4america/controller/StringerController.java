@@ -29,6 +29,11 @@ public class StringerController {
     OpcUaClient String23Client;
 
 
+    @PostMapping("/EL")
+    public String stringerEL() {
+        return "test";
+    }
+
     @PostMapping("/test")
     public String listMachine() {
         return "test";
