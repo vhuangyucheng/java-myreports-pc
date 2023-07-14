@@ -1,6 +1,7 @@
 package com.solar4america.controller;
 
 
+import com.solar4america.stringerClient.Line2;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.nodes.UaVariableNode;
@@ -28,9 +29,15 @@ public class StringerController {
     @Autowired
     OpcUaClient String23Client;
 
+    private Line2 line2 = Line2.getInstance();
 
     @PostMapping("/EL")
     public String stringerEL() {
+        return "test";
+    }
+
+    @PostMapping("/getLine2Data")
+    public String getLine2Data() {
         return "test";
     }
 
@@ -41,30 +48,12 @@ public class StringerController {
 
     @PostMapping("/getString21")
     public Map<String, Object> getString01() {
-        try {
-            Map<String, Object> returnJson = new HashMap<>();
-            String21Client.connect().get();
-            UaVariableNode OKStringA = (UaVariableNode) String21Client.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.OKStringA"));
-            returnJson.put("OKStringA", OKStringA.getValue().getValue().getValue());
-            UaVariableNode NGStringA = (UaVariableNode) String21Client.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.NGStringA"));
-            returnJson.put("NGStringA", NGStringA.getValue().getValue().getValue());
-            UaVariableNode NGCellsA = (UaVariableNode) String21Client.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.NGCellsA"));
-            returnJson.put("NGCellsA", NGCellsA.getValue().getValue().getValue());
-            UaVariableNode OKStringB = (UaVariableNode) String21Client.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.OKStringB"));
-            returnJson.put("OKStringB", OKStringB.getValue().getValue().getValue());
-            UaVariableNode NGStringB = (UaVariableNode) String21Client.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.NGStringB"));
-            returnJson.put("NGStringB", NGStringB.getValue().getValue().getValue());
-            UaVariableNode NGCellsB = (UaVariableNode) String21Client.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.NGCellsB"));
-            returnJson.put("NGCellsB", NGCellsB.getValue().getValue().getValue());
+
+        Map<String, Object> returnJson = new HashMap<>();
 
 
-            return returnJson;
-        } catch (UaException | ExecutionException | InterruptedException e) {
-            System.out.println("calling string21" + e.toString());
-            throw new RuntimeException(e);
-        } finally {
+        return returnJson;
 
-        }
 
     }
 

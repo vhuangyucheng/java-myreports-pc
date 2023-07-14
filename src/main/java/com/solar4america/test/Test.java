@@ -1,54 +1,35 @@
 package com.solar4america.test;
 
-import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
-import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfig;
-import org.eclipse.milo.opcua.sdk.client.api.identity.UsernameProvider;
-import org.eclipse.milo.opcua.sdk.client.nodes.UaVariableNode;
-import org.eclipse.milo.opcua.stack.core.AttributeId;
-import org.eclipse.milo.opcua.stack.core.security.SecurityPolicy;
-import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
-import org.eclipse.milo.opcua.stack.core.types.builtin.LocalizedText;
-import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
-import org.eclipse.milo.opcua.stack.core.types.builtin.QualifiedName;
-import org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.UInteger;
-import org.eclipse.milo.opcua.stack.core.types.enumerated.TimestampsToReturn;
-import org.eclipse.milo.opcua.stack.core.types.structured.EndpointDescription;
-import org.eclipse.milo.opcua.stack.core.types.structured.ReadResponse;
-import org.eclipse.milo.opcua.stack.core.types.structured.ReadValueId;
-import org.springframework.boot.SpringApplication;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.time.LocalTime;
+
 
 public class Test {
-    public static void main(String[] args) throws Exception {
-        SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
-        String day = dayFormat.format(new Date());
-        System.out.println("day: " + day);
+    public static void main(String[] args) {
+        // Get the current time
+        LocalTime currentTime = LocalTime.now();
 
-        SimpleDateFormat sdf = new SimpleDateFormat(day + " HH:mm:ss");
-        Date date1 = sdf.parse(day + " 06:45:00");
-        Date date2 = sdf.parse(day + " 15:15:00");
-        Date date3 = sdf.parse(day + " 23:30:00");
-        Date now = new Date();
-        Date fake = sdf.parse(day + " 15:17:00");
+        // Define shift timings
+        LocalTime shift1Start = LocalTime.of(6, 45); // 6:45 AM
+        LocalTime shift1End = LocalTime.of(15, 15); // 3:15 PM
+        LocalTime shift2Start = LocalTime.of(15, 15); // 3:15 PM
+        LocalTime shift2End = LocalTime.of(23, 30); // 11:30 PM
+        LocalTime shift3Start = LocalTime.of(23, 30); // 11:30 PM
+        LocalTime shift3End = LocalTime.of(6, 45).plusHours(24);
 
+        // Determine the current shift
+        String currentShift = "";
 
-        if (fake.after(date1) && fake.before(date2) || fake.equals(date1)) {
-            System.out.println("Date1 ");
+        if ((currentTime.isAfter(shift1Start) || currentTime.equals(shift1Start)) && currentTime.isBefore(shift1End)) {
+            currentShift = "Shift 1";
+        } else if ((currentTime.isAfter(shift2Start) || currentTime.equals(shift2Start)) && currentTime.isBefore(shift2End)) {
+            currentShift = "Shift 2";
+        } else if (currentTime.isAfter(shift3Start) || currentTime.isBefore(shift3End) || currentTime.equals(shift3Start)) {
+            currentShift = "Shift 3";
+        } else {
+            currentShift = "No shift currently active";
         }
 
-        if (fake.after(date2) && fake.before(date3) || fake.equals(date2)) {
-            System.out.println("Date2");
-        }
-
-        if (date1.after(date3)|| fake.equals(date3)) {
-            System.out.println("Date3");
-        }
-
-
+        System.out.println("Current shift: " + currentShift);
     }
 }
