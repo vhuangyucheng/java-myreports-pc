@@ -25,9 +25,9 @@ spring:
 #      controller: DEBUG
 #      dao: DEBUG
 
-logging:
-  file: demo.log
-  path: /log/
+#logging:
+#  file: demo.log
+#  path: /log/
 
 
 server:
