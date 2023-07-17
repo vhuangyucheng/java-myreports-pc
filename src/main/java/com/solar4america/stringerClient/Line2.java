@@ -1,6 +1,7 @@
 package com.solar4america.stringerClient;
 
 import com.solar4america.uiltility.TimeUtility;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.api.config.OpcUaClientConfigBuilder;
@@ -13,9 +14,9 @@ import java.util.concurrent.ExecutionException;
 @Data
 public class Line2 {
     private static Line2 instance = new Line2();
-    private Stringer stringer21 = new Stringer();
-    private Stringer stringer22 = new Stringer();
-    private Stringer stringer23 = new Stringer();
+    private Stringer stringer21 = new Stringer("string21");
+    private Stringer stringer22 = new Stringer("string22");
+    private Stringer stringer23 = new Stringer("string23");
 
     private Line2() {
         try {
@@ -55,6 +56,7 @@ public class Line2 {
             System.out.println("string21 client connection issue");
             throw new RuntimeException(e);
         }
+        //todo, 开机设置时间，但早班没有备份
         stringer21.setCurrentShift(TimeUtility.getCurrentShift());
         stringer22.setCurrentShift(TimeUtility.getCurrentShift());
         stringer23.setCurrentShift(TimeUtility.getCurrentShift());

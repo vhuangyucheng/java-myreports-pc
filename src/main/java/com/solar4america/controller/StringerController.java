@@ -50,7 +50,7 @@ public class StringerController {
     public Map<String, Object> getString01() {
 
         Map<String, Object> returnJson = new HashMap<>();
-
+        returnJson.put("go", line2);
 
         return returnJson;
 
