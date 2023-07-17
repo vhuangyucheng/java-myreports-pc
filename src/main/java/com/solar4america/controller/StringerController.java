@@ -5,14 +5,12 @@ import com.solar4america.stringerClient.Line2;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
 import org.eclipse.milo.opcua.sdk.client.nodes.UaVariableNode;
-import org.eclipse.milo.opcua.stack.core.AttributeId;
 import org.eclipse.milo.opcua.stack.core.UaException;
-import org.eclipse.milo.opcua.stack.core.types.builtin.DataValue;
 import org.eclipse.milo.opcua.stack.core.types.builtin.NodeId;
-import org.eclipse.milo.opcua.stack.core.types.builtin.QualifiedName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.sound.sampled.Line;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -46,13 +44,13 @@ public class StringerController {
         return "test";
     }
 
-    @PostMapping("/getString21")
-    public Map<String, Object> getString01() {
+    @PostMapping("/getString")
+    public Line2 getString01() throws Exception{
 
         Map<String, Object> returnJson = new HashMap<>();
-        returnJson.put("go", line2);
-
-        return returnJson;
+//        line2.getLine2DataGo();
+//        returnJson.put("go1", line2);
+        return line2.getLine2DataGo();
 
 
     }

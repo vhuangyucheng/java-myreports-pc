@@ -4,34 +4,36 @@ import lombok.Data;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.io.Serializable;
+
 @Data
 @RequiredArgsConstructor
-public class Shift {
+public class Shift implements Serializable {
     @NonNull
     private String shiftName;
 
-    private int OKStringA = 0;
-    private int OKStringB = 0;
-    private int NGStringA = 0;
-    private int NGStringB = 0;
-    private int NGCellA = 0;
-    private int NGCellB = 0;
+    private Integer OKStringA = 0;
+    private Integer OKStringB = 0;
+    private Integer NGStringA = 0;
+    private Integer NGStringB = 0;
+    private Integer NGCellA = 0;
+    private Integer NGCellB = 0;
     //故障时间
-    private int autoFaultTimeA = 0;
-    private int autoFaultTimeB = 0;
+    private Integer errorTImeA = 0;
+    private Integer errorTImeB = 0;
     //缺料时间
-    private int autoMissingMaterialTimeA = 0;
-    private int autoMissingMaterialTimeB = 0;
+    private Integer lackTimeA = 0;
+    private Integer lackTimeB = 0;
     //手动时间
-    private int ManualRunTimeA = 0;
-    private int ManualRunTimeB = 0;
+    private Integer ManualRunTimeA = 0;
+    private Integer ManualRunTimeB = 0;
     //自动运行时间
-    private int autoRunTimeA = 0;
-    private int autoRunTimeB = 0;
-    //换料时间
-    private int autoSuspendTimeA = 0;
-    private int autoSuspendTimeB = 0;
+    private Integer autoRunTimeA = 0;
+    private Integer autoRunTimeB = 0;
+    //自动暂停时间
+    private Integer PauseTimeA = 0;
+    private Integer PauseTimeB = 0;
     //堵料时间
-    private int blockTimeA = 0;
-    private int blockTimeB = 0;
+    private Integer blockTimeA = 0;
+    private Integer blockTimeB = 0;
 }
