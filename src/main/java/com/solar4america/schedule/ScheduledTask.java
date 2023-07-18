@@ -20,6 +20,7 @@ public class ScheduledTask {
         Line2.getInstance().getStringer21().setCurrentShift(1);
         Line2.getInstance().getStringer22().setCurrentShift(1);
         Line2.getInstance().getStringer23().setCurrentShift(1);
+        Line2.getInstance().empty();
         log.info("任务执行时间：" + LocalDateTime.now());
     }
 

@@ -32,7 +32,7 @@ public class Line2 implements Serializable {
             );
             opcUaClient21.connect().get();
             stringer21.setOpcUaClient(opcUaClient21);
-            //2号
+//            2号
             OpcUaClient opcUaClient22 = OpcUaClient.create(
                     "opc.tcp://10.10.140.92:50000",
                     endpoints ->
@@ -55,6 +55,7 @@ public class Line2 implements Serializable {
             opcUaClient23.connect().get();
             stringer23.setOpcUaClient(opcUaClient23);
         } catch (UaException | ExecutionException | InterruptedException e) {
+            System.out.println(e.toString());
             System.out.println("string21 client connection issue");
             throw new RuntimeException(e);
         }
@@ -73,6 +74,14 @@ public class Line2 implements Serializable {
         stringer21.getData();
         stringer22.getData();
         stringer23.getData();
+        return instance;
+    }
+
+    @JsonIgnore
+    public Line2 empty()  {
+        stringer21.empty();
+        stringer22.empty();
+        stringer23.empty();
         return instance;
     }
 }

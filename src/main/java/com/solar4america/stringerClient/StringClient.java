@@ -29,24 +29,24 @@ public class StringClient {
             throw new RuntimeException(e);
         }
     }
-    @Bean
-    public OpcUaClient String22Client() {
-        try {
-            OpcUaClient client = OpcUaClient.create(
-                    "opc.tcp://10.10.140.92:50000",
-                    endpoints ->
-                            endpoints.stream()
-                                    .filter(e -> e.getSecurityPolicyUri().equals(SecurityPolicy.None.getUri()))
-                                    .findFirst(),
-                    OpcUaClientConfigBuilder::build
-            );
-            client.connect().get();
-            return client;
-        } catch (UaException | ExecutionException | InterruptedException e) {
-            System.out.println("string22 client connection issue");
-            throw new RuntimeException(e);
-        }
-    }
+//    @Bean
+//    public OpcUaClient String22Client() {
+//        try {
+//            OpcUaClient client = OpcUaClient.create(
+//                    "opc.tcp://10.10.140.92:50000",
+//                    endpoints ->
+//                            endpoints.stream()
+//                                    .filter(e -> e.getSecurityPolicyUri().equals(SecurityPolicy.None.getUri()))
+//                                    .findFirst(),
+//                    OpcUaClientConfigBuilder::build
+//            );
+//            client.connect().get();
+//            return client;
+//        } catch (UaException | ExecutionException | InterruptedException e) {
+//            System.out.println("string22 client connection issue");
+//            throw new RuntimeException(e);
+//        }
+//    }
     @Bean
     public OpcUaClient String23Client() {
         try {

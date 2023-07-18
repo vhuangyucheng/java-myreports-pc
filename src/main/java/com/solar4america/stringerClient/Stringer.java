@@ -23,9 +23,9 @@ public class Stringer implements Serializable {
 
     public Stringer(String stringerName) {
         this.stringerName = stringerName;
-        shift1 = new Shift(stringerName + "-Day");
-        shift2 = new Shift(stringerName + "-Night");
-        shift3 = new Shift(stringerName + "-NN");
+        shift1 = new Shift("Day-" + stringerName);
+        shift2 = new Shift("Night-" + stringerName);
+        shift3 = new Shift("NN-" + stringerName);
     }
 
     public void getData() throws Exception {
@@ -79,6 +79,11 @@ public class Stringer implements Serializable {
         currentShift.setErrorTImeA(((Double) manualRunTimeB.getValue().getValue().getValue()).intValue());
     }
 
+    public void empty(){
+        shift1 = new Shift("Day" + stringerName);
+        shift2 = new Shift("Night" + stringerName);
+        shift3 = new Shift("NN" + stringerName);
+    }
     public void setCurrentShift(int shiftCode) {
         switch (shiftCode) {
             case 1:
