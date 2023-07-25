@@ -17,11 +17,12 @@ public class ScheduledTask {
 
     @Scheduled(cron="0 45 6 * * ?")
     public void changeToFirstShift() {
+
+        Line2.getInstance().empty();
         Line2.getInstance().getStringer21().setCurrentShift(1);
         Line2.getInstance().getStringer22().setCurrentShift(1);
         Line2.getInstance().getStringer23().setCurrentShift(1);
-        Line2.getInstance().empty();
-        log.info("任务执行时间：" + LocalDateTime.now());
+        log.info("任务执行时间 6:45 ：" + LocalDateTime.now());
     }
 
     @Scheduled(cron="0 15 15 * * ?")
@@ -29,7 +30,7 @@ public class ScheduledTask {
         Line2.getInstance().getStringer21().setCurrentShift(2);
         Line2.getInstance().getStringer22().setCurrentShift(2);
         Line2.getInstance().getStringer23().setCurrentShift(2);
-        log.info("任务执行时间：" + LocalDateTime.now());
+        log.info("任务执行时间 15:15 ：" + LocalDateTime.now());
     }
 
     @Scheduled(cron="0 30 23 * * ?")
@@ -37,7 +38,7 @@ public class ScheduledTask {
         Line2.getInstance().getStringer21().setCurrentShift(3);
         Line2.getInstance().getStringer22().setCurrentShift(3);
         Line2.getInstance().getStringer23().setCurrentShift(3);
-        log.info("任务执行时间：" + LocalDateTime.now());
+        log.info("任务执行时间 23:30 ：" + LocalDateTime.now());
     }
 
 }

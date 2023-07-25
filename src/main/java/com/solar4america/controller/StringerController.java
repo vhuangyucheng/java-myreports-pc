@@ -1,6 +1,8 @@
 package com.solar4america.controller;
 
 
+import com.solar4america.DO.ELQO;
+import com.solar4america.DO.StringerVO;
 import com.solar4america.stringerClient.Line2;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.milo.opcua.sdk.client.OpcUaClient;
@@ -31,11 +33,10 @@ public class StringerController {
     private Line2 line2 = Line2.getInstance();
 
     @PostMapping("/EL")
-    public String stringerEL(HttpServletRequest request) {
-        String paramName = "id";
-        String paramValue = request.getParameter(paramName);
-        System.out.println(paramValue);
-        return "test";
+    public StringerVO stringerEL(@RequestBody ELQO ELQO) {
+        String getId = ELQO.getId();
+        System.out.println(getId);
+        return new StringerVO();
     }
 
     @PostMapping("/getLine2Data")
