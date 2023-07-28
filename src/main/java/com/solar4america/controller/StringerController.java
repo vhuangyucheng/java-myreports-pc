@@ -35,7 +35,7 @@ public class StringerController {
     @PostMapping("/EL")
     public StringerVO stringerEL(@RequestBody ELQO ELQO) {
         String getId = ELQO.getId();
-        System.out.println(getId);
+        System.out.println(ELQO.toString());
         return new StringerVO();
     }
 

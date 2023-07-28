@@ -80,9 +80,9 @@ public class Stringer implements Serializable {
     }
 
     public void empty(){
-        shift1 = new Shift("Day" + this.stringerName);
-        shift2 = new Shift("Night" + this.stringerName);
-        shift3 = new Shift("NN" + this.stringerName);
+        shift1 = new Shift("Day-" + this.stringerName);
+        shift2 = new Shift("Night-" + this.stringerName);
+        shift3 = new Shift("NN-" + this.stringerName);
     }
     public void setCurrentShift(int shiftCode) {
         switch (shiftCode) {
