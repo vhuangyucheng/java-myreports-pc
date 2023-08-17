@@ -1,15 +1,19 @@
 package com.solar4america.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.util.Date;
+
+import static org.eclipse.milo.opcua.stack.core.Identifiers.IdType;
+
 @Data
 @TableName("record")
 public class RecordsDBO {
-    @TableId("record_id")
+    @TableId(value = "record_id", type= com.baomidou.mybatisplus.annotation.IdType.AUTO)
     private Integer recordId;
     @TableField("shift_id")
     private Integer shiftId;
@@ -25,8 +29,6 @@ public class RecordsDBO {
     private String firstELOutput;
     @TableField("firstEL_defect")
     private String firstELDefect;
-    @TableField("firstEL_qrcode_amount")
-    private String firstELQrcodeAmount;
     @TableField("module_repair")
     private String moduleRepair;
     @TableField("module_scrap")

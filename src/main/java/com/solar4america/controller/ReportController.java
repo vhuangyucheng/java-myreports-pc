@@ -21,14 +21,27 @@ public class ReportController {
     @PostMapping("/getRecord")
     public ResultDO<RecordsDBO> getRecord(@RequestBody RecordsDBO recordsDBO) {
         ResultDO<RecordsDBO> resultDO = new ResultDO<>();
-        RecordsDBO recordsDBOReturn = recordsApi.getRecord(recordsDBO.getShiftId());
-        if(null != recordsDBOReturn){
-            resultDO.setData(recordsDBOReturn);
-            resultDO.setCode("1");
-            return resultDO;
-        }
         resultDO.setData(null);
         resultDO.setCode("0");
+        if (null == recordsDBO.getShiftId()) {
+            return resultDO;
+        }
+        RecordsDBO recordsDBOReturn = recordsApi.getRecord(recordsDBO.getShiftId());
+        if (null == recordsDBOReturn) {
+            return resultDO;
+        }
+        resultDO.setData(recordsDBOReturn);
+        resultDO.setCode("1");
+        return resultDO;
+    }
+
+    @PostMapping("/saveAndUpdate")
+    public ResultDO<RecordsDBO> saveAndUpdate(@RequestBody RecordsDBO recordsDBO) {
+        ResultDO<RecordsDBO> resultDO = new ResultDO<>();
+        resultDO.setData(null);
+        resultDO.setCode("0");
+        recordsApi.saveAndEditRecord(recordsDBO);
+        resultDO.setCode("1");
         return resultDO;
     }
 }
