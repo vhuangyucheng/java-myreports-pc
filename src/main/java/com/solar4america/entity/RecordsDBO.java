@@ -56,14 +56,20 @@ public class RecordsDBO {
     @TableField("cleaning_defect")
     private String cleaningDefect;
     @TableField("secondEL")
+    private String secondEL;
+    @TableField("secondEL_defect")
     private String secondELDefect;
     @TableField("stringer1")
     private String stringer1;
     @TableField("stringer1_defect")
     private String stringer1Defect;
     @TableField("stringer2")
+    private String stringer2;
+    @TableField("stringer2_defect")
     private String stringer2Defect;
     @TableField("stringer3")
+    private String stringer3;
+    @TableField("stringer3_defect")
     private String stringer3Defect;
     @TableField("openbox_broken")
     private String openboxBroken;

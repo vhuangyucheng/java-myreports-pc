@@ -25,8 +25,11 @@ public class RecordService implements IRecords {
 
     //列表
     @Override
-    public List<RecordsDBO> listRecords() {
-        return null;
+    public List<RecordsDBO> listRecords(Integer shiftId) {
+        QueryWrapper<RecordsDBO> queryWrapper  = new QueryWrapper<>();
+        queryWrapper.gt("shift_id", shiftId);
+        queryWrapper.lt("shift_id", shiftId+100);
+        return recordsMapper.selectList(queryWrapper);
     }
 
     //保存和修改

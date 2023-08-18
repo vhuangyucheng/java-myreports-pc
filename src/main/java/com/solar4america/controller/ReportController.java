@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @Slf4j
 @RestController
 @RequestMapping("/report")
@@ -31,6 +33,23 @@ public class ReportController {
             return resultDO;
         }
         resultDO.setData(recordsDBOReturn);
+        resultDO.setCode("1");
+        return resultDO;
+    }
+
+    @PostMapping("/listRecord")
+    public ResultDO<List<RecordsDBO>> listRecord(@RequestBody RecordsDBO recordsDBO) {
+        ResultDO<List<RecordsDBO>> resultDO = new ResultDO<>();
+        resultDO.setData(null);
+        resultDO.setCode("0");
+        if (null == recordsDBO.getShiftId()) {
+            return resultDO;
+        }
+        List<RecordsDBO> recordsDBOList = recordsApi.listRecords(recordsDBO.getShiftId());
+        if (null == recordsDBOList || recordsDBOList.isEmpty()) {
+            return resultDO;
+        }
+        resultDO.setData(recordsDBOList);
         resultDO.setCode("1");
         return resultDO;
     }
