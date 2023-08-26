@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IRecords {
     public List<RecordsDBO> listRecords(Integer shiftId);
-    public void saveAndEditRecord(RecordsDBO recordsDBO);
+    public int saveAndEditRecord(RecordsDBO recordsDBO);
 
     public RecordsDBO getRecord(Integer shiftId);
 }

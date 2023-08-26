@@ -2,7 +2,9 @@ package com.solar4america.controller;
 
 import com.solar4america.DO.ResultDO;
 import com.solar4america.api.IRecords;
+import com.solar4america.api.IShiftRecordApi;
 import com.solar4america.entity.RecordsDBO;
+import com.solar4america.entity.ShiftRecordDBO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,21 +16,21 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping("/report")
-public class ReportController {
+@RequestMapping("/shiftRecord")
+public class ShiftRecordController {
 
     @Autowired
-    public IRecords recordsApi;
+    public IShiftRecordApi shiftRecordApi;
 
-    @PostMapping("/getRecord")
-    public ResultDO<RecordsDBO> getRecord(@RequestBody RecordsDBO recordsDBO) {
-        ResultDO<RecordsDBO> resultDO = new ResultDO<>();
+    @PostMapping("/getShiftRecord")
+    public ResultDO<ShiftRecordDBO> getShiftRecord(@RequestBody ShiftRecordDBO shiftRecordDBO) {
+        ResultDO<ShiftRecordDBO> resultDO = new ResultDO<>();
         resultDO.setData(null);
         resultDO.setCode("0");
-        if (null == recordsDBO.getShiftId()) {
+        if (null == shiftRecordDBO.getShiftId()) {
             return resultDO;
         }
-        RecordsDBO recordsDBOReturn = recordsApi.getRecord(recordsDBO.getShiftId());
+        ShiftRecordDBO recordsDBOReturn = shiftRecordApi.getRecord(shiftRecordDBO.getShiftId());
         if (null == recordsDBOReturn) {
             return resultDO;
         }
@@ -37,15 +39,15 @@ public class ReportController {
         return resultDO;
     }
 
-    @PostMapping("/listRecord")
-    public ResultDO<List<RecordsDBO>> listRecord(@RequestBody RecordsDBO recordsDBO) {
-        ResultDO<List<RecordsDBO>> resultDO = new ResultDO<>();
+    @PostMapping("/listShiftRecord")
+    public ResultDO<List<ShiftRecordDBO>> listShiftRecord(@RequestBody ShiftRecordDBO shiftRecordDBO) {
+        ResultDO<List<ShiftRecordDBO>> resultDO = new ResultDO<>();
         resultDO.setData(null);
         resultDO.setCode("0");
-        if (null == recordsDBO.getShiftId()) {
+        if (null == shiftRecordDBO.getShiftId()) {
             return resultDO;
         }
-        List<RecordsDBO> recordsDBOList = recordsApi.listRecords(recordsDBO.getShiftId());
+        List<ShiftRecordDBO> recordsDBOList = shiftRecordApi.listRecords(shiftRecordDBO.getShiftId());
         if (null == recordsDBOList || recordsDBOList.isEmpty()) {
             return resultDO;
         }
@@ -55,11 +57,11 @@ public class ReportController {
     }
 
     @PostMapping("/saveAndUpdate")
-    public ResultDO<RecordsDBO> saveAndUpdate(@RequestBody RecordsDBO recordsDBO) {
-        ResultDO<RecordsDBO> resultDO = new ResultDO<>();
+    public ResultDO<ShiftRecordDBO> saveAndUpdate(@RequestBody ShiftRecordDBO shiftRecordDBO) {
+        ResultDO<ShiftRecordDBO> resultDO = new ResultDO<>();
         resultDO.setData(null);
         resultDO.setCode("0");
-        int result = recordsApi.saveAndEditRecord(recordsDBO);
+        int result = shiftRecordApi.saveAndEditShiftRecord(shiftRecordDBO);
         if(0 == result){
             return resultDO;
         }

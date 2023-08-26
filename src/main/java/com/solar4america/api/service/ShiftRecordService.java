@@ -1,9 +1,11 @@
 package com.solar4america.api.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.solar4america.api.IRecords;
+import com.solar4america.api.IShiftRecordApi;
 import com.solar4america.entity.RecordsDBO;
+import com.solar4america.entity.ShiftRecordDBO;
 import com.solar4america.mapper.RecordsMapper;
+import com.solar4america.mapper.ShiftRecordMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
@@ -18,44 +20,41 @@ import java.util.Set;
 
 @Slf4j
 @Service
-public class RecordService implements IRecords {
-
+public class ShiftRecordService implements IShiftRecordApi {
     @Autowired
-    private RecordsMapper recordsMapper;
+    private ShiftRecordMapper shiftRecordMapper;
 
-    //列表
     @Override
-    public List<RecordsDBO> listRecords(Integer shiftId) {
-        QueryWrapper<RecordsDBO> queryWrapper  = new QueryWrapper<>();
+    public List<ShiftRecordDBO> listRecords(Integer shiftId) {
+        QueryWrapper<ShiftRecordDBO> queryWrapper  = new QueryWrapper<>();
         queryWrapper.gt("shift_id", shiftId);
         queryWrapper.lt("shift_id", shiftId+100);
-        return recordsMapper.selectList(queryWrapper);
+        return shiftRecordMapper.selectList(queryWrapper);
     }
 
-    //保存和修改
     @Override
-    public int saveAndEditRecord(RecordsDBO recordsDBO) {
-        QueryWrapper<RecordsDBO> queryWrapper  = new QueryWrapper<>();
-        queryWrapper.eq("shift_id", recordsDBO.getShiftId());
-        RecordsDBO recordsDBOTemp= recordsMapper.selectOne(queryWrapper);
+    public int saveAndEditShiftRecord(ShiftRecordDBO shiftRecordDBO) {
+        QueryWrapper<ShiftRecordDBO> queryWrapper  = new QueryWrapper<>();
+        queryWrapper.eq("shift_id", shiftRecordDBO.getShiftId());
+        ShiftRecordDBO recordsDBOTemp= shiftRecordMapper.selectOne(queryWrapper);
         if(null == recordsDBOTemp){
-            recordsMapper.insert(recordsDBO);
+            shiftRecordDBO.setIsLock(0);
+            shiftRecordMapper.insert(shiftRecordDBO);
             return 1;
         }
         if(1 == recordsDBOTemp.getIsLock()){
             return 0;
         }
-        BeanUtils.copyProperties(recordsDBO, recordsDBOTemp, getNullPropertyNames(recordsDBO));
-        recordsMapper.updateById(recordsDBOTemp);
+        BeanUtils.copyProperties(shiftRecordDBO, recordsDBOTemp, getNullPropertyNames(shiftRecordDBO));
+        shiftRecordMapper.updateById(recordsDBOTemp);
         return 1;
     }
 
-
     @Override
-    public RecordsDBO getRecord(Integer shiftId) {
-        QueryWrapper<RecordsDBO> queryWrapper  = new QueryWrapper<>();
+    public ShiftRecordDBO getRecord(Integer shiftId) {
+        QueryWrapper<ShiftRecordDBO> queryWrapper  = new QueryWrapper<>();
         queryWrapper.eq("shift_id", shiftId);
-        return recordsMapper.selectOne(queryWrapper);
+        return shiftRecordMapper.selectOne(queryWrapper);
     }
 
     public static String[] getNullPropertyNames(Object source) {
