@@ -47,7 +47,7 @@ public class ShiftRecordController {
         if (null == shiftRecordDBO.getShiftId()) {
             return resultDO;
         }
-        List<ShiftRecordDBO> recordsDBOList = shiftRecordApi.listRecords(shiftRecordDBO.getShiftId());
+        List<ShiftRecordDBO> recordsDBOList = shiftRecordApi.listRecords(shiftRecordDBO);
         if (null == recordsDBOList || recordsDBOList.isEmpty()) {
             return resultDO;
         }

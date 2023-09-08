@@ -25,10 +25,11 @@ public class ShiftRecordService implements IShiftRecordApi {
     private ShiftRecordMapper shiftRecordMapper;
 
     @Override
-    public List<ShiftRecordDBO> listRecords(Integer shiftId) {
+    public List<ShiftRecordDBO> listRecords(ShiftRecordDBO shiftRecordDBO) {
         QueryWrapper<ShiftRecordDBO> queryWrapper  = new QueryWrapper<>();
-        queryWrapper.gt("shift_id", shiftId);
-        queryWrapper.lt("shift_id", shiftId+100);
+        queryWrapper.eq("is_lock", shiftRecordDBO.getIsLock());
+        queryWrapper.gt("shift_id", shiftRecordDBO.getShiftId());
+        queryWrapper.lt("shift_id", shiftRecordDBO.getShiftId()+100);
         return shiftRecordMapper.selectList(queryWrapper);
     }
 

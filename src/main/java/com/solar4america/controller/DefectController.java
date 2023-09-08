@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 
 
 @Slf4j
@@ -46,6 +47,20 @@ public class DefectController {
             return resultDO;
         }
         resultDO.setCode("1");
+        return resultDO;
+    }
+
+    @PostMapping("/ListOpenDefect")
+    public ResultDO<List<DefectDBO>> ListOpenDefect(@RequestBody DefectDBO defectDBO) {
+        ResultDO<List<DefectDBO>> resultDO = new ResultDO<>();
+        resultDO.setData(null);
+        resultDO.setCode("0");
+        List<DefectDBO> defectDBOReturnList  = defectApi.ListOpenReview();
+        if(null == defectDBOReturnList || defectDBOReturnList.isEmpty()){
+            return resultDO;
+        }
+        resultDO.setCode("1");
+        resultDO.setData(defectDBOReturnList);
         return resultDO;
     }
 }

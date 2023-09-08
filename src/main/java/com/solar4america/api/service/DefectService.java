@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.beans.PropertyDescriptor;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -54,6 +55,13 @@ public class DefectService implements IDefectApi {
         queryWrapper.eq("qrcode", qrcode);
         queryWrapper.ne("status", 0);
         return defectMapper.selectOne(queryWrapper);
+    }
+
+    @Override
+    public List<DefectDBO> ListOpenReview() {
+        QueryWrapper<DefectDBO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.ne("status", 0);
+        return defectMapper.selectList(queryWrapper);
     }
 
     public static String[] getNullPropertyNames(Object source) {
