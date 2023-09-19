@@ -30,6 +30,7 @@ public class ShiftRecordService implements IShiftRecordApi {
         queryWrapper.eq("is_lock", shiftRecordDBO.getIsLock());
         queryWrapper.gt("shift_id", shiftRecordDBO.getShiftId());
         queryWrapper.lt("shift_id", shiftRecordDBO.getShiftId()+100);
+        queryWrapper.orderByAsc("shift_id");
         return shiftRecordMapper.selectList(queryWrapper);
     }
 

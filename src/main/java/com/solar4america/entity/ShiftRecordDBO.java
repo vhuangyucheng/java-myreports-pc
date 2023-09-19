@@ -13,7 +13,7 @@ import static org.eclipse.milo.opcua.stack.core.Identifiers.IdType;
 @Data
 @TableName("shift_record")
 public class ShiftRecordDBO {
-    @TableId(value = "shift_record_id", type= com.baomidou.mybatisplus.annotation.IdType.AUTO)
+    @TableId(value = "shift_record_id", type = com.baomidou.mybatisplus.annotation.IdType.AUTO)
     private Integer shiftRecordId;
     @TableField("shift_id")
     private Integer shiftId;
@@ -147,5 +147,19 @@ public class ShiftRecordDBO {
     private String stringer2Others;
     @TableField("stringer3_others")
     private String stringer3Others;
+    @TableField("iv_defect")
+    private String ivDefect;
+    @TableField("hipot_defect")
+    private String hipotDefect;
+    @TableField("secondel_defect")
+    private String secondelDefect;
+    @TableField("packing")
+    private String packing;
+    @TableField("short_frame_scrap")
+    private String shortFrameScrap;
+    @TableField("finishedgood_degrade")
+    private String finishedgoodDegrade;
+    @TableField("finishedgood_scrap")
+    private String finishedgoodScrap;
 
 }
