@@ -7,21 +7,27 @@ import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
 
 import java.beans.PropertyDescriptor;
+import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 
 public class Test {
     public static void main(String[] args) {
-        RecordsDBO recordsDBO1 = new RecordsDBO();
-        recordsDBO1.setShiftId(1);
-        RecordsDBO recordsDBO2 = new RecordsDBO();
-        recordsDBO2.setShiftId(2);
-        recordsDBO2.setIsLock(2);
-//        BeanUtils.copyProperties(recordsDBO1, recordsDBO2, getNullPropertyNames(recordsDBO1));
-        System.out.println(recordsDBO1);
-        System.out.println(recordsDBO2);
+
+
+        // Parse the input date
+        LocalDate date = LocalDate.now();
+
+        // Format the date as "yyyyMMdd"
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String formattedDate = date.format(formatter);
+
+        // Print the formatted date
+        System.out.println("Formatted Date: " + formattedDate);
     }
 
 

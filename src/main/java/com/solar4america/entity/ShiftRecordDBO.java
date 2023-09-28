@@ -44,41 +44,41 @@ public class ShiftRecordDBO {
     @TableField("high_temperature_tape_output")
     private String highTemperatureTapeOutput;
     @TableField("stringer1_output")
-    private String stringer1Output;
+    private Integer stringer1Output;
     @TableField("stringer1_miswelding")
-    private String stringer1Miswelding;
+    private Integer stringer1Miswelding;
     @TableField("stringer1_overwelding")
-    private String stringer1Overwelding;
+    private Integer stringer1Overwelding;
     @TableField("stringer1_split")
-    private String stringer1Split;
+    private Integer stringer1Split;
     @TableField("stringer1_crack")
-    private String stringer1Crack;
+    private Integer stringer1Crack;
     @TableField("stringer1_cells_crack")
-    private String stringer1CellsCrack;
+    private Integer stringer1CellsCrack;
     @TableField("stringer2_output")
-    private String stringer2Output;
+    private Integer stringer2Output;
     @TableField("stringer2_miswelding")
-    private String stringer2Miswelding;
+    private Integer stringer2Miswelding;
     @TableField("stringer2_overwelding")
-    private String stringer2Overwelding;
+    private Integer stringer2Overwelding;
     @TableField("stringer2_split")
-    private String stringer2Split;
+    private Integer stringer2Split;
     @TableField("stringer2_crack")
-    private String stringer2Crack;
+    private Integer stringer2Crack;
     @TableField("stringer2_cells_crack")
-    private String stringer2CellsCrack;
+    private Integer stringer2CellsCrack;
     @TableField("stringer3_output")
-    private String stringer3Output;
+    private Integer stringer3Output;
     @TableField("stringer3_miswelding")
-    private String stringer3Miswelding;
+    private Integer stringer3Miswelding;
     @TableField("stringer3_overwelding")
-    private String stringer3Overwelding;
+    private Integer stringer3Overwelding;
     @TableField("stringer3_split")
-    private String stringer3Split;
+    private Integer stringer3Split;
     @TableField("stringer3_crack")
-    private String stringer3Crack;
+    private Integer stringer3Crack;
     @TableField("stringer3_cells_crack")
-    private String stringer3CellsCrack;
+    private Integer stringer3CellsCrack;
     @TableField("bussing_output")
     private String bussingOutput;
     @TableField("bussing_miswelding")
@@ -92,21 +92,21 @@ public class ShiftRecordDBO {
     @TableField("firstel1_output")
     private String firstel1Output;
     @TableField("firstel2_output")
-    private String firstel2Output;
+    private Integer firstel2Output;
     @TableField("firstel2_defect")
-    private String firstel2Defect;
+    private Integer firstel2Defect;
     @TableField("cells_receive")
     private String cellsReceive;
     @TableField("cells_input")
     private String cellsInput;
     @TableField("stringer_scrap")
-    private String stringerScrap;
+    private Integer stringerScrap;
     @TableField("incoming_scrap")
-    private String incomingScrap;
+    private Integer incomingScrap;
     @TableField("repair_scrap")
-    private String repairScrap;
+    private Integer repairScrap;
     @TableField("incident_scrap")
-    private String incidentScrap;
+    private Integer incidentScrap;
     @TableField("cells_left")
     private String cellsLeft;
     @TableField("ribbon_scrap")
@@ -114,7 +114,7 @@ public class ShiftRecordDBO {
     @TableField("busbar_scrap")
     private String busbarScrap;
     @TableField("laminator1_output")
-    private String laminator1Output;
+    private Integer laminator1Output;
     @TableField("laminator2_output")
     private String laminator2Output;
     @TableField("laminator3_output")
@@ -122,9 +122,9 @@ public class ShiftRecordDBO {
     @TableField("trimming_output")
     private String trimmingOutput;
     @TableField("framing_output")
-    private String framingOutput;
+    private Integer framingOutput;
     @TableField("secondel_output")
-    private String secondelOutput;
+    private Integer secondelOutput;
     @TableField("framing_scrap")
     private String framingScrap;
     @TableField("framing_glue_scrap")
@@ -142,11 +142,11 @@ public class ShiftRecordDBO {
     @TableField("packing_strap")
     private String packingStrap;
     @TableField("stringer1_others")
-    private String stringer1Others;
+    private Integer stringer1Others;
     @TableField("stringer2_others")
-    private String stringer2Others;
+    private Integer stringer2Others;
     @TableField("stringer3_others")
-    private String stringer3Others;
+    private Integer stringer3Others;
     @TableField("iv_defect")
     private String ivDefect;
     @TableField("hipot_defect")
@@ -158,8 +158,11 @@ public class ShiftRecordDBO {
     @TableField("short_frame_scrap")
     private String shortFrameScrap;
     @TableField("finishedgood_degrade")
-    private String finishedgoodDegrade;
+    private Integer finishedgoodDegrade;
     @TableField("finishedgood_scrap")
-    private String finishedgoodScrap;
-
+    private Integer finishedgoodScrap;
+    @TableField("firstel_yield_rate")
+    private String firstelYieldRate;
+    @TableField("stringer_yield_rate")
+    private String stringerYieldRate;
 }

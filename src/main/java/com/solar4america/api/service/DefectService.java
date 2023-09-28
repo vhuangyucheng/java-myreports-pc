@@ -28,7 +28,7 @@ public class DefectService implements IDefectApi {
     private DefectMapper defectMapper;
 
     @Override
-    public int saveAndEditShiftRecord(DefectDBO defectDBO) {
+     public int saveAndEditShiftRecord(DefectDBO defectDBO) {
         DefectDBO defectDBOTemp = null;
         if (defectDBO.getDefectId() != null) {
             defectDBOTemp = defectMapper.selectById(defectDBO.getDefectId());

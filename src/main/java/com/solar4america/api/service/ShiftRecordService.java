@@ -35,7 +35,7 @@ public class ShiftRecordService implements IShiftRecordApi {
     }
 
     @Override
-    public int saveAndEditShiftRecord(ShiftRecordDBO shiftRecordDBO) {
+    synchronized public int saveAndEditShiftRecord(ShiftRecordDBO shiftRecordDBO) {
         QueryWrapper<ShiftRecordDBO> queryWrapper  = new QueryWrapper<>();
         queryWrapper.eq("shift_id", shiftRecordDBO.getShiftId());
         ShiftRecordDBO recordsDBOTemp= shiftRecordMapper.selectOne(queryWrapper);
