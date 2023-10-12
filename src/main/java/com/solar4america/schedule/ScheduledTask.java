@@ -57,8 +57,8 @@ public class ScheduledTask {
         int Stringer23Amount = Line2.getInstance().getStringer23().getCurrentShift().getOKStringA() + Line2.getInstance().getStringer23().getCurrentShift().getOKStringB();
         ShiftRecordDBO shiftRecordDBO = new ShiftRecordDBO();
         shiftRecordDBO.setStringer1Output(Stringer21Amount);
-        shiftRecordDBO.setStringer1Output(Stringer22Amount);
-        shiftRecordDBO.setStringer1Output(Stringer23Amount);
+        shiftRecordDBO.setStringer2Output(Stringer22Amount);
+        shiftRecordDBO.setStringer3Output(Stringer23Amount);
         LocalDate date = LocalDate.now();
         // Format the date as "yyyyMMdd"
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
@@ -75,8 +75,8 @@ public class ScheduledTask {
         int Stringer23Amount = Line2.getInstance().getStringer23().getCurrentShift().getOKStringA() + Line2.getInstance().getStringer23().getCurrentShift().getOKStringB();
         ShiftRecordDBO shiftRecordDBO = new ShiftRecordDBO();
         shiftRecordDBO.setStringer1Output(Stringer21Amount);
-        shiftRecordDBO.setStringer1Output(Stringer22Amount);
-        shiftRecordDBO.setStringer1Output(Stringer23Amount);
+        shiftRecordDBO.setStringer2Output(Stringer22Amount);
+        shiftRecordDBO.setStringer3Output(Stringer23Amount);
         LocalDate date = LocalDate.now();
         // Format the date as "yyyyMMdd"
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
@@ -93,8 +93,8 @@ public class ScheduledTask {
         int Stringer23Amount = Line2.getInstance().getStringer23().getCurrentShift().getOKStringA() + Line2.getInstance().getStringer23().getCurrentShift().getOKStringB();
         ShiftRecordDBO shiftRecordDBO = new ShiftRecordDBO();
         shiftRecordDBO.setStringer1Output(Stringer21Amount);
-        shiftRecordDBO.setStringer1Output(Stringer22Amount);
-        shiftRecordDBO.setStringer1Output(Stringer23Amount);
+        shiftRecordDBO.setStringer2Output(Stringer22Amount);
+        shiftRecordDBO.setStringer3Output(Stringer23Amount);
         LocalDate date = LocalDate.now();
         // Format the date as "yyyyMMdd"
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
