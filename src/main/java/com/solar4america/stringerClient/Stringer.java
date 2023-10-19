@@ -45,38 +45,38 @@ public class Stringer implements Serializable {
         currentShift.setNGCellB(((Long) NGCellsB.getValue().getValue().getValue()).intValue());
         //故障时间
         UaVariableNode autoFaultTimeA = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.ErrorTimeA"));
-        currentShift.setErrorTImeA(((Double) autoFaultTimeA.getValue().getValue().getValue()).intValue());
+        currentShift.setErrorTImeA((Double) autoFaultTimeA.getValue().getValue().getValue());
         UaVariableNode autoFaultTimeB = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.ErrorTimeB"));
-        currentShift.setErrorTImeA(((Double) autoFaultTimeB.getValue().getValue().getValue()).intValue());
+        currentShift.setErrorTImeB((Double) autoFaultTimeB.getValue().getValue().getValue());
         //缺料时间
         UaVariableNode autoMissingMaterialTimeA = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.LackTimeA"));
-        currentShift.setErrorTImeA(((Double) autoMissingMaterialTimeA.getValue().getValue().getValue()).intValue());
+        currentShift.setLackTimeA((Double) autoMissingMaterialTimeA.getValue().getValue().getValue());
         UaVariableNode autoMissingMaterialTimeB = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.LackTimeB"));
-        currentShift.setErrorTImeA(((Double) autoMissingMaterialTimeB.getValue().getValue().getValue()).intValue());
+        currentShift.setLackTimeB((Double) autoMissingMaterialTimeB.getValue().getValue().getValue());
         //自动运行时间
         UaVariableNode autoRunTimeA = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.RunTimeA"));
-        currentShift.setErrorTImeA(((Double) autoRunTimeA.getValue().getValue().getValue()).intValue());
-        UaVariableNode autoRunTimeB = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.RunTimeA"));
-        currentShift.setErrorTImeA(((Double) autoRunTimeB.getValue().getValue().getValue()).intValue());
+        currentShift.setAutoRunTimeA((Double) autoRunTimeA.getValue().getValue().getValue());
+        UaVariableNode autoRunTimeB = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.RunTimeB"));
+        currentShift.setAutoRunTimeB((Double) autoRunTimeB.getValue().getValue().getValue());
         //自动暂停时间
         UaVariableNode autoSuspendTimeA = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.PauseTimeA"));
-        currentShift.setErrorTImeA(((Double) autoSuspendTimeA.getValue().getValue().getValue()).intValue());
+        currentShift.setPauseTimeA((Double) autoSuspendTimeA.getValue().getValue().getValue());
         UaVariableNode autoSuspendTimeB = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.PauseTimeB"));
-        currentShift.setErrorTImeA(((Double) autoSuspendTimeB.getValue().getValue().getValue()).intValue());
+        currentShift.setPauseTimeB((Double) autoSuspendTimeB.getValue().getValue().getValue());
         //堵料 todo 没有a
         UaVariableNode blockTimeA = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.StopTime"));
-        currentShift.setErrorTImeA(((Double) blockTimeA.getValue().getValue().getValue()).intValue());
+        currentShift.setBlockTimeA((Double) blockTimeA.getValue().getValue().getValue());
         //todo 有的机子是double有的是Long
         UaVariableNode blockTimeB = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.StopTimeB"));
-        if ((blockTimeB.getValue().getValue().getValue()) instanceof Double)
-            currentShift.setErrorTImeA(((Double) blockTimeB.getValue().getValue().getValue()).intValue());
-        if ((blockTimeB.getValue().getValue().getValue()) instanceof Long)
-            currentShift.setErrorTImeA(((Long) blockTimeB.getValue().getValue().getValue()).intValue());
+//        if ((blockTimeB.getValue().getValue().getValue()) instanceof Double)
+            currentShift.setBlockTimeB((Double) blockTimeB.getValue().getValue().getValue());
+//        if ((blockTimeB.getValue().getValue().getValue()) instanceof Long)
+//            currentShift.setBlockTimeB((Long) blockTimeB.getValue().getValue().getValue());
         //手动运行
         UaVariableNode manualRunTimeA = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.ManualTimeA"));
-        currentShift.setErrorTImeA(((Double) manualRunTimeA.getValue().getValue().getValue()).intValue());
+        currentShift.setManualRunTimeA((Double) manualRunTimeA.getValue().getValue().getValue());
         UaVariableNode manualRunTimeB = (UaVariableNode) opcUaClient.getAddressSpace().getNode(new NodeId(2, "Tag.Statistics.PLC.ManualTimeB"));
-        currentShift.setErrorTImeA(((Double) manualRunTimeB.getValue().getValue().getValue()).intValue());
+        currentShift.setManualRunTimeB((Double) manualRunTimeB.getValue().getValue().getValue());
     }
 
     public void empty(){

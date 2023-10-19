@@ -19,21 +19,21 @@ public class Shift implements Serializable {
     private Integer NGCellA = 0;
     private Integer NGCellB = 0;
     //故障时间
-    private Integer errorTImeA = 0;
-    private Integer errorTImeB = 0;
+    private Double errorTImeA = 0.0;
+    private Double errorTImeB = 0.0;
     //缺料时间
-    private Integer lackTimeA = 0;
-    private Integer lackTimeB = 0;
+    private Double lackTimeA = 0.0;
+    private Double lackTimeB = 0.0;
     //手动时间
-    private Integer ManualRunTimeA = 0;
-    private Integer ManualRunTimeB = 0;
+    private Double ManualRunTimeA = 0.0;
+    private Double ManualRunTimeB = 0.0;
     //自动运行时间
-    private Integer autoRunTimeA = 0;
-    private Integer autoRunTimeB = 0;
+    private Double autoRunTimeA = 0.0;
+    private Double autoRunTimeB = 0.0;
     //自动暂停时间
-    private Integer PauseTimeA = 0;
-    private Integer PauseTimeB = 0;
+    private Double PauseTimeA = 0.0;
+    private Double PauseTimeB = 0.0;
     //堵料时间
-    private Integer blockTimeA = 0;
-    private Integer blockTimeB = 0;
+    private Double blockTimeA = 0.0;
+    private Double blockTimeB = 0.0;
 }
