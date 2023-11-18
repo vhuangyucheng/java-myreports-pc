@@ -154,7 +154,7 @@ public class ShiftRecordDBO {
     @TableField("secondel_defect")
     private String secondelDefect;
     @TableField("packing")
-    private String packing;
+    private Integer packing;
     @TableField("short_frame_scrap")
     private String shortFrameScrap;
     @TableField("finishedgood_degrade")

@@ -64,7 +64,7 @@ public class ScheduledTask {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         int dateNumber = Integer.parseInt(date.format(formatter)+"23")-100;
         shiftRecordDBO.setShiftId(dateNumber);
-        shiftRecordApi.saveAndEditShiftRecord(shiftRecordDBO);
+//        shiftRecordApi.saveAndEditShiftRecord(shiftRecordDBO);
         log.info("third shift data collect 时间 6:44 ：" + LocalDateTime.now());
     }
 
@@ -82,7 +82,7 @@ public class ScheduledTask {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         int dateNumber = Integer.parseInt(date.format(formatter)+"21");
         shiftRecordDBO.setShiftId(dateNumber);
-        shiftRecordApi.saveAndEditShiftRecord(shiftRecordDBO);
+//        shiftRecordApi.saveAndEditShiftRecord(shiftRecordDBO);
         log.info("firstShiftFinish 15:14 ：" + LocalDateTime.now());
     }
 
@@ -100,7 +100,7 @@ public class ScheduledTask {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         int dateNumber = Integer.parseInt(date.format(formatter)+"22");
         shiftRecordDBO.setShiftId(dateNumber);
-        shiftRecordApi.saveAndEditShiftRecord(shiftRecordDBO);
+//        shiftRecordApi.saveAndEditShiftRecord(shiftRecordDBO);
         log.info("secondShiftFinish 23:29 ：" + LocalDateTime.now());
     }
 

@@ -57,7 +57,7 @@ public class Line2 implements Serializable {
         } catch (UaException | ExecutionException | InterruptedException e) {
             System.out.println(e.toString());
             System.out.println("string21 client connection issue");
-            throw new RuntimeException(e);
+//            throw new RuntimeException(e);
         }
         //todo, 开机设置时间，但早班没有备份
         stringer21.setCurrentShift(TimeUtility.getCurrentShift());
