@@ -1,10 +1,8 @@
-package com.solar4america.api.service;
+package com.solar4america.service.kpi.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.solar4america.api.IShiftRecordApi;
-import com.solar4america.entity.RecordsDBO;
+import com.solar4america.service.kpi.api.IShiftRecordApi;
 import com.solar4america.entity.ShiftRecordDBO;
-import com.solar4america.mapper.RecordsMapper;
 import com.solar4america.mapper.ShiftRecordMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;

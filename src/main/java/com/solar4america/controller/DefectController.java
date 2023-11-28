@@ -1,10 +1,8 @@
 package com.solar4america.controller;
 
-import com.solar4america.DO.ResultDO;
-import com.solar4america.api.IDefectApi;
-import com.solar4america.api.IShiftRecordApi;
+import com.solar4america.DO.response.ResultDO;
+import com.solar4america.service.defect.api.IDefectApi;
 import com.solar4america.entity.DefectDBO;
-import com.solar4america.entity.ShiftRecordDBO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

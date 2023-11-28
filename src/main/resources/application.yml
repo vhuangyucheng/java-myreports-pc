@@ -1,6 +1,11 @@
 spring:
   #  resources:
   #    static-locations: classpath:/static/
+  #404
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
   datasource:
     #连接MySQL
     url: jdbc:mysql://localhost:3306/java_myreports_pc?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=true
@@ -25,9 +30,9 @@ spring:
 #      controller: DEBUG
 #      dao: DEBUG
 
-#logging:
-#  file: demo.log
-#  path: /log/
+logging:
+  file: myLog.log
+  path: /log/
 
 
 server:

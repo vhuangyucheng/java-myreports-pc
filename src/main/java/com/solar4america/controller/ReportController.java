@@ -1,7 +1,7 @@
 package com.solar4america.controller;
 
-import com.solar4america.DO.ResultDO;
-import com.solar4america.api.IRecords;
+import com.solar4america.DO.response.ResultDO;
+import com.solar4america.service.defect.api.IRecords;
 import com.solar4america.entity.RecordsDBO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

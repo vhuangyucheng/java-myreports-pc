@@ -1,4 +1,4 @@
-package com.solar4america.api;
+package com.solar4america.service.defect.api;
 
 import com.solar4america.entity.RecordsDBO;
 

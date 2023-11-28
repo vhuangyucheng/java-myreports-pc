@@ -1,7 +1,7 @@
-package com.solar4america.api.service;
+package com.solar4america.service.defect.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.solar4america.api.IRecords;
+import com.solar4america.service.defect.api.IRecords;
 import com.solar4america.entity.RecordsDBO;
 import com.solar4america.mapper.RecordsMapper;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,5 @@
-package com.solar4america.api;
+package com.solar4america.service.kpi.api;
 
-import com.solar4america.entity.RecordsDBO;
 import com.solar4america.entity.ShiftRecordDBO;
 
 import java.util.List;

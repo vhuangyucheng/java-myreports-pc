@@ -1,4 +1,4 @@
-package com.solar4america.DO;
+package com.solar4america.DO.response;
 
 import lombok.Data;
 

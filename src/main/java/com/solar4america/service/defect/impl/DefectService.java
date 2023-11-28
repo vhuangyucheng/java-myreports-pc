@@ -1,13 +1,9 @@
-package com.solar4america.api.service;
+package com.solar4america.service.defect.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.solar4america.api.IDefectApi;
-import com.solar4america.api.IShiftRecordApi;
+import com.solar4america.service.defect.api.IDefectApi;
 import com.solar4america.entity.DefectDBO;
-import com.solar4america.entity.RecordsDBO;
-import com.solar4america.entity.ShiftRecordDBO;
 import com.solar4america.mapper.DefectMapper;
-import com.solar4america.mapper.ShiftRecordMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;

@@ -1,8 +1,6 @@
-package com.solar4america.api;
+package com.solar4america.service.defect.api;
 
 import com.solar4america.entity.DefectDBO;
-import com.solar4america.entity.RecordsDBO;
-import com.solar4america.entity.ShiftRecordDBO;
 
 import java.util.List;
 

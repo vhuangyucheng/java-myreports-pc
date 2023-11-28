@@ -1,15 +1,13 @@
 package com.solar4america.schedule;
 
-import com.solar4america.api.IShiftRecordApi;
+import com.solar4america.service.kpi.api.IShiftRecordApi;
 import com.solar4america.entity.ShiftRecordDBO;
 import com.solar4america.stringerClient.Line2;
 import lombok.extern.slf4j.Slf4j;
-import lombok.extern.slf4j.XSlf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
