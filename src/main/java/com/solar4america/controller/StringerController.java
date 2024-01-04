@@ -60,6 +60,17 @@ public class StringerController {
 
     }
 
+//    @PostMapping("/clearStringer")
+//    public Line2 getString01() throws Exception{
+//
+//        Map<String, Object> returnJson = new HashMap<>();
+////        line2.getLine2DataGo();
+////        returnJson.put("go1", line2);
+//        return line2.getLine2DataGo();
+//
+//
+//    }
+
 //    @PostMapping("/getString22")
 //    public Map<String, Object> getString22() {
 //        try {

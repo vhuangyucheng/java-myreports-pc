@@ -1,6 +1,7 @@
 package com.solar4america.service.kpi.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.solar4america.service.kpi.api.IShiftRecordApi;
 import com.solar4america.entity.ShiftRecordDBO;
 import com.solar4america.mapper.ShiftRecordMapper;
@@ -48,6 +49,21 @@ public class ShiftRecordService implements IShiftRecordApi {
         BeanUtils.copyProperties(shiftRecordDBO, recordsDBOTemp, getNullPropertyNames(shiftRecordDBO));
         shiftRecordMapper.updateById(recordsDBOTemp);
         return 1;
+    }
+
+    @Override
+    public void unlockByDate(Integer shiftId) {
+        // Create an instance of UpdateWrapper
+        UpdateWrapper<ShiftRecordDBO> updateWrapper = new UpdateWrapper<>();
+
+        // Set the condition for the update
+        updateWrapper.eq("shift_id", shiftId);
+
+        // Set the update statement
+        updateWrapper.set("is_lock", 0);
+
+        // Perform the update
+        shiftRecordMapper.update(null, updateWrapper);
     }
 
     @Override

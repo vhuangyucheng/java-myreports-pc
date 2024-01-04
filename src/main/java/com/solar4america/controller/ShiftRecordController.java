@@ -5,10 +5,7 @@ import com.solar4america.service.kpi.api.IShiftRecordApi;
 import com.solar4america.entity.ShiftRecordDBO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -63,6 +60,15 @@ public class ShiftRecordController {
         if(0 == result){
             return resultDO;
         }
+        resultDO.setCode("1");
+        return resultDO;
+    }
+
+    @GetMapping("/unlock/{id}")
+    public ResultDO<Object> unlock(@PathVariable Integer id) {
+        System.out.println(id);
+        shiftRecordApi.unlockByDate(id);
+        ResultDO<Object> resultDO = new ResultDO<>();
         resultDO.setCode("1");
         return resultDO;
     }
