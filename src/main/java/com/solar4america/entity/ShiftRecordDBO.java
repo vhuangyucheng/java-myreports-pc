@@ -96,9 +96,9 @@ public class ShiftRecordDBO {
     @TableField("firstel2_defect")
     private Integer firstel2Defect;
     @TableField("cells_receive")
-    private String cellsReceive;
+    private Integer cellsReceive;
     @TableField("cells_input")
-    private String cellsInput;
+    private Integer cellsInput;
     @TableField("stringer_scrap")
     private Integer stringerScrap;
     @TableField("incoming_scrap")
@@ -108,7 +108,7 @@ public class ShiftRecordDBO {
     @TableField("incident_scrap")
     private Integer incidentScrap;
     @TableField("cells_left")
-    private String cellsLeft;
+    private Integer cellsLeft;
     @TableField("ribbon_scrap")
     private String ribbonScrap;
     @TableField("busbar_scrap")
@@ -165,4 +165,10 @@ public class ShiftRecordDBO {
     private String firstelYieldRate;
     @TableField("stringer_yield_rate")
     private String stringerYieldRate;
+    @TableField("lamination_defect")
+    private Integer laminationDefect;
+    @TableField("appearance_inspection")
+    private Integer appearanceInspection;
+    @TableField("junctionbox_defect")
+    private Integer junctionboxDefect;
 }

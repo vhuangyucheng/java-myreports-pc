@@ -30,9 +30,9 @@ spring:
 #      controller: DEBUG
 #      dao: DEBUG
 
-logging:
-  file: myLog.log
-  path: /log/
+#logging:
+#  file: myLog.log
+#  path: /log/
 
 
 server:
