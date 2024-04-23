@@ -18,9 +18,21 @@ public class TicketController {
     @Autowired
     public ITicketApi ticketApi;
 
-    @PostMapping("/getShiftRecord")
-    public ResultDO<ShiftRecordDBO> getShiftRecord(@RequestBody ShiftRecordDBO shiftRecordDBO) {
-        return null;
+    @PostMapping("/getTicket")
+    public ResultDO<TicketDBO> getShiftRecord(@RequestBody TicketDBO ticketDBO) {
+        ResultDO<TicketDBO> resultDO = new ResultDO<>();
+        resultDO.setData(null);
+        resultDO.setCode("0");
+        if (null == ticketDBO.getTicketId()) {
+            return resultDO;
+        }
+        TicketDBO ticketDBOReturn = ticketApi.getTicket(ticketDBO.getTicketId());
+        if (null == ticketDBOReturn) {
+            return resultDO;
+        }
+        resultDO.setData(ticketDBOReturn);
+        resultDO.setCode("1");
+        return resultDO;
     }
 
     @PostMapping("/listTicket")

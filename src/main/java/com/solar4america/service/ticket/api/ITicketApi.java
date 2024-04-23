@@ -8,5 +8,5 @@ public interface ITicketApi {
     public List<TicketDBO> listRecords(TicketDBO ticketDBO);
     public int saveAndEditTicket(TicketDBO ticketDBO);
 
-    public TicketDBO getTicket(TicketDBO ticketDBO);
+    public TicketDBO getTicket(Integer ticketId);
 }

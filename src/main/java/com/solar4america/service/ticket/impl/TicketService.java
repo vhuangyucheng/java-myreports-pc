@@ -16,6 +16,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.beans.PropertyDescriptor;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,23 +30,29 @@ public class TicketService implements ITicketApi {
 
     @Override
     public List<TicketDBO> listRecords(TicketDBO ticketDBO) {
-        QueryWrapper<TicketDBO> queryWrapper  = new QueryWrapper<>();
-        if(ticketDBO.getTicketStatus()!=0){
+        QueryWrapper<TicketDBO> queryWrapper = new QueryWrapper<>();
+        if (ticketDBO.getTicketStatus() != 0) {
             queryWrapper.eq("ticket_status", ticketDBO.getTicketStatus());
         }
-        if(ticketDBO.getTicketDuration()!=0){
+        if (ticketDBO.getTicketDuration() != 0) {
             queryWrapper.eq("ticket_duration", ticketDBO.getTicketDuration());
         }
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
+        String formattedDate = currentDate.format(formatter);
+        int intDate = Integer.parseInt(formattedDate) * 100;
+        queryWrapper.gt("ticket_shift_id", intDate);
+        queryWrapper.lt("ticket_shift_id", intDate + 100);
         queryWrapper.orderByAsc("create_time");
         return ticketMapper.selectList(queryWrapper);
     }
 
     @Override
     public int saveAndEditTicket(TicketDBO ticketDBO) {
-        QueryWrapper<TicketDBO> queryWrapper  = new QueryWrapper<>();
+        QueryWrapper<TicketDBO> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("ticket_id", ticketDBO.getTicketId());
-        TicketDBO ticketDBOTemp= ticketMapper.selectOne(queryWrapper);
-        if(null == ticketDBOTemp){
+        TicketDBO ticketDBOTemp = ticketMapper.selectOne(queryWrapper);
+        if (null == ticketDBOTemp) {
             ticketMapper.insert(ticketDBO);
             return 1;
         }
@@ -54,8 +62,10 @@ public class TicketService implements ITicketApi {
     }
 
     @Override
-    public TicketDBO getTicket(TicketDBO ticketDBO) {
-        return null;
+    public TicketDBO getTicket(Integer ticketId) {
+        QueryWrapper<TicketDBO> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("ticket_id", ticketId);
+        return ticketMapper.selectOne(queryWrapper);
     }
 
     public static String[] getNullPropertyNames(Object source) {

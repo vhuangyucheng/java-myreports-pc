@@ -23,6 +23,10 @@ public class ShiftRecordDBO {
     private String qrcodeStart;
     @TableField("qrcode_end")
     private String qrcodeEnd;
+    @TableField("qrcode_start2")
+    private String qrcodeStart2;
+    @TableField("qrcode_end2")
+    private String qrcodeEnd2;
     @TableField("qrcode_amount")
     private String qrcodeAmount;
     @TableField("glass_output")
