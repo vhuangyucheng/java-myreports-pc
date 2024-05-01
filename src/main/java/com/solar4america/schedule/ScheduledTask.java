@@ -21,31 +21,31 @@ public class ScheduledTask {
     public IShiftRecordApi shiftRecordApi;
 
     //切换shift
-    @Scheduled(cron = "0 45 6 * * ?")
-    public void changeToFirstShift() {
-
-        Line2.getInstance().empty();
-        Line2.getInstance().getStringer21().setCurrentShift(1);
-        Line2.getInstance().getStringer22().setCurrentShift(1);
-        Line2.getInstance().getStringer23().setCurrentShift(1);
-        log.info("执行shift change时间 6:45 ：" + LocalDateTime.now());
-    }
-
-    @Scheduled(cron = "0 15 15 * * ?")
-    public void ChangeToSecondShift() {
-        Line2.getInstance().getStringer21().setCurrentShift(2);
-        Line2.getInstance().getStringer22().setCurrentShift(2);
-        Line2.getInstance().getStringer23().setCurrentShift(2);
-        log.info("执行shift change时间 15:15 ：" + LocalDateTime.now());
-    }
-
-    @Scheduled(cron = "0 30 23 * * ?")
-    public void ChangeToThirdShift() {
-        Line2.getInstance().getStringer21().setCurrentShift(3);
-        Line2.getInstance().getStringer22().setCurrentShift(3);
-        Line2.getInstance().getStringer23().setCurrentShift(3);
-        log.info("执行shift change时间 23:30 ：" + LocalDateTime.now());
-    }
+//    @Scheduled(cron = "0 45 6 * * ?")
+//    public void changeToFirstShift() {
+//
+//        Line2.getInstance().empty();
+//        Line2.getInstance().getStringer21().setCurrentShift(1);
+//        Line2.getInstance().getStringer22().setCurrentShift(1);
+//        Line2.getInstance().getStringer23().setCurrentShift(1);
+//        log.info("执行shift change时间 6:45 ：" + LocalDateTime.now());
+//    }
+//
+//    @Scheduled(cron = "0 15 15 * * ?")
+//    public void ChangeToSecondShift() {
+//        Line2.getInstance().getStringer21().setCurrentShift(2);
+//        Line2.getInstance().getStringer22().setCurrentShift(2);
+//        Line2.getInstance().getStringer23().setCurrentShift(2);
+//        log.info("执行shift change时间 15:15 ：" + LocalDateTime.now());
+//    }
+//
+//    @Scheduled(cron = "0 30 23 * * ?")
+//    public void ChangeToThirdShift() {
+//        Line2.getInstance().getStringer21().setCurrentShift(3);
+//        Line2.getInstance().getStringer22().setCurrentShift(3);
+//        Line2.getInstance().getStringer23().setCurrentShift(3);
+//        log.info("执行shift change时间 23:30 ：" + LocalDateTime.now());
+//    }
 
     //shift结束发送数据
     @Scheduled(cron = "0 44 6 * * ?")

@@ -28,5 +28,9 @@ public class TimeUtility {
         }
         return currentShift;
     }
+
+    public static int getCurrentShift2() {
+        return 1;
+    }
 }
 

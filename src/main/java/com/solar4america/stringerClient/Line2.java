@@ -15,9 +15,9 @@ import java.util.concurrent.ExecutionException;
 public class Line2 implements Serializable {
     @JsonIgnore
     private static Line2 instance = new Line2();
-    private Stringer stringer21 = new Stringer("string21");
-    private Stringer stringer22 = new Stringer("string22");
-    private Stringer stringer23 = new Stringer("string23");
+    private Stringer stringer21 = new Stringer("string1");
+    private Stringer stringer22 = new Stringer("string2");
+    private Stringer stringer23 = new Stringer("string3");
 
     private Line2() {
         try {
@@ -60,9 +60,9 @@ public class Line2 implements Serializable {
 //            throw new RuntimeException(e);
         }
         //todo, 开机设置时间，但早班没有备份
-        stringer21.setCurrentShift(TimeUtility.getCurrentShift());
-        stringer22.setCurrentShift(TimeUtility.getCurrentShift());
-        stringer23.setCurrentShift(TimeUtility.getCurrentShift());
+        stringer21.setCurrentShift(TimeUtility.getCurrentShift2());
+        stringer22.setCurrentShift(TimeUtility.getCurrentShift2());
+        stringer23.setCurrentShift(TimeUtility.getCurrentShift2());
     }
 
     public static Line2 getInstance() {
