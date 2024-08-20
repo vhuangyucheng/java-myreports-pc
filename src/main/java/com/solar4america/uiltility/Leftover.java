@@ -1,13 +1,21 @@
-package com.solar4america.test;
+package com.solar4america.uiltility;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.solar4america.entity.SettingDBO;
+import com.solar4america.service.kpi.api.IShiftRecordApi;
+import com.solar4america.service.kpi.impl.ShiftRecordService;
+import com.solar4america.service.setting.api.ISettingApi;
+import com.solar4america.service.setting.impl.SettingService;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -16,18 +24,15 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-public class Test {
+@Component
+public class Leftover {
+
+    @Autowired
+    public ISettingApi settingApi;
 
     private static final String BASE_URL = "http://10.10.140.251:62000/api/services/MES2RPT/ProductionReportData/GetSummaryDataList";
 
-    public static void main(String[] args) {
-        String jsonResponse = fetchJsonResponse();
-        if (jsonResponse != null) {
-            processJsonResponse(jsonResponse);
-        }
-    }
-
-    private static String fetchJsonResponse() {
+    private String fetchJsonResponse() {
         try {
             // Define the dates
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -68,7 +73,7 @@ public class Test {
         return null;
     }
 
-    private static void processJsonResponse(String jsonResponse) {
+    private  int processJsonResponse(String jsonResponse) {
         try {
             // Parse JSON response
             ObjectMapper mapper = new ObjectMapper();
@@ -77,23 +82,36 @@ public class Test {
             // Extract items array
             JsonNode items = rootNode.path("result").path("items");
 
-            int totalEL1 = 0;
+            int Lamination = 0;
             int totalFramingJB = 0;
 
-            // Iterate over items and sum EL-1 and Framing&JB values
+            // Iterate over items and sum Lamination and Framing&JB values
             for (JsonNode item : items) {
-                totalEL1 += item.path("EL-1").asInt();
+                Lamination += item.path("Lamination").asInt();
                 totalFramingJB += item.path("Framing&JB").asInt();
             }
 
             // Calculate the result
-            int resultAmount = totalEL1 - totalFramingJB;
+            int resultAmount = Lamination - totalFramingJB;
 
             // Print the result
-            System.out.println("Result: " + resultAmount);
+            return resultAmount;
 
         } catch (IOException e) {
             System.err.println("Error processing JSON response: " + e.getMessage());
         }
+        return 0;
+
+    }
+
+    public void ServiceExecute(){
+        String jsonResponse = fetchJsonResponse();
+        int total = 0;
+        if (jsonResponse != null) {
+            total = processJsonResponse(jsonResponse);
+        }
+        SettingDBO settingDBO = settingApi.getSetting();
+        settingDBO.setInitialWip(total + settingDBO.getInitialWip());
+        settingApi.setSetting(settingDBO);
     }
 }

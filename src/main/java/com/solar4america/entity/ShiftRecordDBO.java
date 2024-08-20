@@ -58,7 +58,7 @@ public class ShiftRecordDBO {
     @TableField("stringer1_crack")
     private Integer stringer1Crack;
     @TableField("stringer1_cells_crack")
-    private Integer stringer1CellsCrack;
+    private Double stringer1CellsCrack;
     @TableField("stringer2_output")
     private Integer stringer2Output;
     @TableField("stringer2_miswelding")
@@ -70,7 +70,7 @@ public class ShiftRecordDBO {
     @TableField("stringer2_crack")
     private Integer stringer2Crack;
     @TableField("stringer2_cells_crack")
-    private Integer stringer2CellsCrack;
+    private Double stringer2CellsCrack;
     @TableField("stringer3_output")
     private Integer stringer3Output;
     @TableField("stringer3_miswelding")
@@ -82,7 +82,7 @@ public class ShiftRecordDBO {
     @TableField("stringer3_crack")
     private Integer stringer3Crack;
     @TableField("stringer3_cells_crack")
-    private Integer stringer3CellsCrack;
+    private Double stringer3CellsCrack;
     @TableField("bussing_output")
     private String bussingOutput;
     @TableField("bussing_miswelding")
@@ -100,19 +100,19 @@ public class ShiftRecordDBO {
     @TableField("firstel2_defect")
     private Integer firstel2Defect;
     @TableField("cells_receive")
-    private Integer cellsReceive;
+    private Double cellsReceive;
     @TableField("cells_input")
-    private Integer cellsInput;
+    private Double cellsInput;
     @TableField("stringer_scrap")
-    private Integer stringerScrap;
+    private Double stringerScrap;
     @TableField("incoming_scrap")
-    private Integer incomingScrap;
+    private Double incomingScrap;
     @TableField("repair_scrap")
-    private Integer repairScrap;
+    private Double repairScrap;
     @TableField("incident_scrap")
-    private Integer incidentScrap;
+    private Double incidentScrap;
     @TableField("cells_left")
-    private Integer cellsLeft;
+    private Double cellsLeft;
     @TableField("ribbon_scrap")
     private String ribbonScrap;
     @TableField("busbar_scrap")
@@ -175,4 +175,10 @@ public class ShiftRecordDBO {
     private Integer appearanceInspection;
     @TableField("junctionbox_defect")
     private Integer junctionboxDefect;
+    @TableField("rework_output")
+    private Integer reworkOutput;
+    @TableField("rework_ngstring")
+    private Integer reworkNgstring;
+    @TableField("repair_string_scrap")
+    private Double repairStringScrap;
 }
