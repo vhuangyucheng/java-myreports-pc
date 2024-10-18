@@ -2,9 +2,11 @@ package com.solar4america.service.kpi.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.solar4america.mapper.SettingMapper;
 import com.solar4america.service.kpi.api.IShiftRecordApi;
 import com.solar4america.entity.ShiftRecordDBO;
 import com.solar4america.mapper.ShiftRecordMapper;
+import com.solar4america.service.setting.impl.SettingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
@@ -22,6 +24,8 @@ import java.util.Set;
 public class ShiftRecordService implements IShiftRecordApi {
     @Autowired
     private ShiftRecordMapper shiftRecordMapper;
+    @Autowired
+    private SettingService settingService;
 
     @Override
     public List<ShiftRecordDBO> listRecords(ShiftRecordDBO shiftRecordDBO) {
@@ -40,10 +44,14 @@ public class ShiftRecordService implements IShiftRecordApi {
         ShiftRecordDBO recordsDBOTemp= shiftRecordMapper.selectOne(queryWrapper);
         if(null == recordsDBOTemp){
             shiftRecordDBO.setIsLock(0);
+            shiftRecordDBO.setWo(settingService.getSetting().getCurrentWo());
             shiftRecordMapper.insert(shiftRecordDBO);
             return 1;
         }
-        if(1 == recordsDBOTemp.getIsLock()){
+        if(1 == recordsDBOTemp.getIsLock() && null == shiftRecordDBO.getShiftComment()
+                && null == shiftRecordDBO.getEquipmentComment()
+                && null == shiftRecordDBO.getQcComment()
+                && null == shiftRecordDBO.getPlanningComment()){
             return 0;
         }
         BeanUtils.copyProperties(shiftRecordDBO, recordsDBOTemp, getNullPropertyNames(shiftRecordDBO));

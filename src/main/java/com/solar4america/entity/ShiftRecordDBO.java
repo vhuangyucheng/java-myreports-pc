@@ -181,4 +181,14 @@ public class ShiftRecordDBO {
     private Integer reworkNgstring;
     @TableField("repair_string_scrap")
     private Double repairStringScrap;
+    @TableField("shift_comment")
+    private String shiftComment;
+    @TableField("equipment_comment")
+    private String equipmentComment;
+    @TableField("qc_comment")
+    private String qcComment;
+    @TableField("planning_comment")
+    private String planningComment;
+    @TableField("wo")
+    private String wo;
 }

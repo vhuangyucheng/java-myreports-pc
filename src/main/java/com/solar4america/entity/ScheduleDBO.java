@@ -82,4 +82,79 @@ public class ScheduleDBO {
     @TableField("packing7")
     private Integer packing7;
 
+    @TableField("layup_hourly1")
+    private String layupHourly1;
+    @TableField("layup_hourly2")
+    private String layupHourly2;
+    @TableField("layup_hourly3")
+    private String layupHourly3;
+    @TableField("layup_hourly4")
+    private String layupHourly4;
+    @TableField("layup_hourly5")
+    private String layupHourly5;
+    @TableField("layup_hourly6")
+    private String layupHourly6;
+    @TableField("layup_hourly7")
+    private String layupHourly7;
+
+    @TableField("firstel_hourly1")
+    private String firstelHourly1;
+    @TableField("firstel_hourly2")
+    private String firstelHourly2;
+    @TableField("firstel_hourly3")
+    private String firstelHourly3;
+    @TableField("firstel_hourly4")
+    private String firstelHourly4;
+    @TableField("firstel_hourly5")
+    private String firstelHourly5;
+    @TableField("firstel_hourly6")
+    private String firstelHourly6;
+    @TableField("firstel_hourly7")
+    private String firstelHourly7;
+
+    @TableField("framing_hourly1")
+    private String framingHourly1;
+    @TableField("framing_hourly2")
+    private String framingHourly2;
+    @TableField("framing_hourly3")
+    private String framingHourly3;
+    @TableField("framing_hourly4")
+    private String framingHourly4;
+    @TableField("framing_hourly5")
+    private String framingHourly5;
+    @TableField("framing_hourly6")
+    private String framingHourly6;
+    @TableField("framing_hourly7")
+    private String framingHourly7;
+
+    @TableField("sorting_hourly1")
+    private String sortingHourly1;
+    @TableField("sorting_hourly2")
+    private String sortingHourly2;
+    @TableField("sorting_hourly3")
+    private String sortingHourly3;
+    @TableField("sorting_hourly6")
+    private String sortingHourly6;
+    @TableField("sorting_hourly4")
+    private String sortingHourly4;
+    @TableField("sorting_hourly5")
+    private String sortingHourly5;
+    @TableField("sorting_hourly7")
+    private String sortingHourly7;
+
+    @TableField("packing_hourly1")
+    private String packingHourly1;
+    @TableField("packing_hourly2")
+    private String packingHourly2;
+    @TableField("packing_hourly3")
+    private String packingHourly3;
+    @TableField("packing_hourly4")
+    private String packingHourly4;
+    @TableField("packing_hourly5")
+    private String packingHourly5;
+    @TableField("packing_hourly6")
+    private String packingHourly6;
+    @TableField("packing_hourly7")
+    private String packingHourly7;
+
 }

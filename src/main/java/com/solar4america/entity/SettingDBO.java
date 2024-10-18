@@ -21,5 +21,7 @@ public class SettingDBO {
     private Integer initialWip;
     @TableField("laminator")
     private Integer laminator;
+    @TableField("current_wo")
+    private String currentWo;
 
 }
