@@ -2,6 +2,7 @@ package com.solar4america.controller;
 
 import com.solar4america.DO.response.ResultDO;
 import com.solar4america.entity.SettingDBO;
+import com.solar4america.entity.WoDBO;
 import com.solar4america.service.kpi.api.IShiftRecordApi;
 import com.solar4america.entity.ShiftRecordDBO;
 import com.solar4america.service.setting.api.ISettingApi;
@@ -39,6 +40,20 @@ public class SettingController {
         resultDO.setData(null);
         resultDO.setCode("0");
         settingApi.setSetting(settingDBO);
+        resultDO.setCode("1");
+        return resultDO;
+    }
+
+    @PostMapping("/listWo")
+    public ResultDO<List<WoDBO>> listWo() {
+        ResultDO<List<WoDBO>> resultDO = new ResultDO<>();
+        resultDO.setData(null);
+        resultDO.setCode("0");
+        List<WoDBO> woDBOList = settingApi.listWo();
+        if(null == woDBOList){
+            return resultDO;
+        }
+        resultDO.setData(woDBOList);
         resultDO.setCode("1");
         return resultDO;
     }

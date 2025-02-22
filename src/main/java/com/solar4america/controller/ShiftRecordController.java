@@ -51,6 +51,20 @@ public class ShiftRecordController {
         return resultDO;
     }
 
+    @PostMapping("/listShiftRecordByWo")
+    public ResultDO<List<ShiftRecordDBO>> listShiftRecordByWo(@RequestBody ShiftRecordDBO shiftRecordDBO) {
+        ResultDO<List<ShiftRecordDBO>> resultDO = new ResultDO<>();
+        resultDO.setData(null);
+        resultDO.setCode("0");
+        List<ShiftRecordDBO> recordsDBOList = shiftRecordApi.listRecordsByWo(shiftRecordDBO);
+        if (null == recordsDBOList || recordsDBOList.isEmpty()) {
+            return resultDO;
+        }
+        resultDO.setData(recordsDBOList);
+        resultDO.setCode("1");
+        return resultDO;
+    }
+
     @PostMapping("/saveAndUpdate")
     public ResultDO<ShiftRecordDBO> saveAndUpdate(@RequestBody ShiftRecordDBO shiftRecordDBO) {
         ResultDO<ShiftRecordDBO> resultDO = new ResultDO<>();

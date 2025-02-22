@@ -38,6 +38,14 @@ public class ShiftRecordService implements IShiftRecordApi {
     }
 
     @Override
+    public List<ShiftRecordDBO> listRecordsByWo(ShiftRecordDBO shiftRecordDBO) {
+        QueryWrapper<ShiftRecordDBO> queryWrapper  = new QueryWrapper<>();
+        queryWrapper.eq("wo", shiftRecordDBO.getWo());
+        queryWrapper.orderByAsc("shift_id");
+        return shiftRecordMapper.selectList(queryWrapper);
+    }
+
+    @Override
     synchronized public int saveAndEditShiftRecord(ShiftRecordDBO shiftRecordDBO) {
         QueryWrapper<ShiftRecordDBO> queryWrapper  = new QueryWrapper<>();
         queryWrapper.eq("shift_id", shiftRecordDBO.getShiftId());

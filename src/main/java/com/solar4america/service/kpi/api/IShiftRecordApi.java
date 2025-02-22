@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface IShiftRecordApi {
     public List<ShiftRecordDBO> listRecords(ShiftRecordDBO shiftRecordDBO);
+    public List<ShiftRecordDBO> listRecordsByWo(ShiftRecordDBO shiftRecordDBO);
     public int saveAndEditShiftRecord(ShiftRecordDBO shiftRecordDBO);
 
     void unlockByDate(Integer shiftId);
